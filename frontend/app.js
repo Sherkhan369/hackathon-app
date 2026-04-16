@@ -21,6 +21,9 @@ async function signup() {
 
 // LOGIN
 async function login() {
+  const btn = event.target;
+  btn.innerText = "Logging in...";
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -34,9 +37,9 @@ async function login() {
 
   if (data.token) {
     localStorage.setItem("token", data.token);
-    alert("Login successful!");
     window.location.href = "dashboard.html";
   } else {
     alert(data.msg);
+    btn.innerText = "Login";
   }
 }
