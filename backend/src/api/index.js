@@ -13,7 +13,13 @@ app.use(express.json());
 // ✅ use existing DB connection
 connectDB();
 
+
 // routes
 app.use("/api/auth", authRoutes);
+
+app.get("/", (req, res) => {
+  res.send("API WORKING ✅");
+});
+
 
 module.exports = app;

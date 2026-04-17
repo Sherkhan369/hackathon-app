@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/api/auth";
+const API = "https://hackathon-app-two-theta.vercel.app/api/auth";
 
 // SIGNUP
 async function signup() {
