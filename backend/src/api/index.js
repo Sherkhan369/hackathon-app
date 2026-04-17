@@ -7,7 +7,11 @@ const authRoutes = require("../routes/authRoutes");
 const app = express();
 dotenv.config();
 
-app.use(cors());
+// ✅ FIX: CORS allow frontend domain
+app.use(cors({
+  origin: "https://hackathon-app-frox.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 
 // ✅ use existing DB connection
