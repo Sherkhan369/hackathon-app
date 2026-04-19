@@ -1,39 +1,475 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HelpHub AI — SMIT Grand Coding Night 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="bg-light">
-
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <span class="navbar-brand">Hackathon App 🚀</span>
+<!-- NAVBAR -->
+<header id="navbar">
+  <div class="container nav-inner">
+    <a class="nav-logo" onclick="navigate('home')">
+      <div class="logo-icon">H</div>
+      <span class="logo-text">HelpHub AI</span>
+    </a>
+    <nav class="nav-links" id="navLinks"></nav>
+    <div class="nav-actions" id="navActions"></div>
   </div>
-</nav>
+</header>
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<!-- PAGES -->
+<div id="app">
 
-  <div class="card shadow p-4" style="width: 350px;">
-    <h3 class="text-center mb-3">Login</h3>
+  <!-- HOME -->
+  <div class="page" id="page-home">
+    <div class="container page-wrap space-y">
 
-    <div id="alertBox"></div>
+      <!-- Hero row -->
+      <div class="grid-2">
+        <!-- Left hero -->
+        <div class="hero-grad">
+          <div class="hero-content">
+            <p class="label label-light mb-3">SMIT GRAND CODING NIGHT 2026</p>
+            <h1 style="font-size:clamp(26px,4vw,38px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem;">
+              Find help faster.<br/>Become help that matters.
+            </h1>
+            <p style="font-size:15px;color:#d6d3d1;line-height:1.7;margin-bottom:2rem;max-width:420px;">
+              HelpHub AI is a community-powered support network for students, mentors, creators, and builders. Ask for help, offer help, track impact, and let AI surface smarter matches.
+            </p>
+            <div class="flex gap-3">
+              <button class="btn-primary" onclick="navigate('dashboard')">Open product demo</button>
+              <button class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,0.3);" onclick="navigate('create')">Post a request</button>
+            </div>
+            <div class="hero-stat-grid" id="homeStats"></div>
+          </div>
+        </div>
 
-    <input id="email" class="form-control mb-2" placeholder="Email">
-    <input id="password" type="password" class="form-control mb-3" placeholder="Password">
+        <!-- Right hero -->
+        <div class="hero-grad">
+          <div class="hero-content">
+            <p class="label label-light mb-3">LIVE PRODUCT FEEL</p>
+            <h2 style="font-size:clamp(22px,3vw,30px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:1rem;">
+              More than a form.<br/>More like an ecosystem.
+            </h2>
+            <p style="font-size:14px;color:#d6d3d1;line-height:1.7;margin-bottom:1.5rem;">
+              A polished multi-page experience with AI summaries, trust scores, leaderboard momentum, and real localStorage persistence.
+            </p>
+            <div class="space-3">
+              <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.1);">
+                <p style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">AI request intelligence</p>
+                <p style="font-size:12px;color:#d6d3d1;">Auto-categorization, urgency detection, tags, and rewrite suggestions.</p>
+              </div>
+              <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.1);">
+                <p style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">Community trust graph</p>
+                <p style="font-size:12px;color:#d6d3d1;">Badges, helper rankings, and visible contribution history.</p>
+              </div>
+              <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.1);">
+                <p style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;">100% Trust Score</p>
+                <p style="font-size:12px;color:#d6d3d1;">Top trust score across the sample mentor network.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <button id="loginBtn" onclick="login()" class="btn btn-success w-100">
-      Login
-    </button>
+      <!-- Core Flow -->
+      <div>
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <p class="label mb-2">CORE FLOW</p>
+            <h2 style="font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text-900);font-style:italic;">From struggling alone to solving together</h2>
+          </div>
+          <button class="btn-secondary" onclick="navigate('login')">Try onboarding AI</button>
+        </div>
+        <div class="grid-3">
+          <div class="glass p-6">
+            <h3 style="font-size:16px;margin-bottom:8px;">Ask for help clearly</h3>
+            <p style="font-size:14px;color:var(--text-500);line-height:1.6;">Create structured requests with category, urgency, AI suggestions, and tags that attract the right people.</p>
+          </div>
+          <div class="glass p-6">
+            <h3 style="font-size:16px;margin-bottom:8px;">Discover the right people</h3>
+            <p style="font-size:14px;color:var(--text-500);line-height:1.6;">Use the explore feed, helper lists, notifications, and messaging to move quickly once a match happens.</p>
+          </div>
+          <div class="glass p-6">
+            <h3 style="font-size:16px;margin-bottom:8px;">Track real contribution</h3>
+            <p style="font-size:14px;color:var(--text-500);line-height:1.6;">Trust scores, badges, solved requests, and rankings help the community recognize meaningful support.</p>
+          </div>
+        </div>
+      </div>
 
-    <p class="mt-3 text-center">
-      Don't have account? <a href="signup.html">Signup</a>
-    </p>
+      <!-- Featured Requests -->
+      <div>
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <p class="label mb-2">FEATURED REQUESTS</p>
+            <h2 style="font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text-900);font-style:italic;">Community problems currently in motion</h2>
+          </div>
+          <button class="btn-secondary" onclick="navigate('explore')">View full feed →</button>
+        </div>
+        <div class="grid-3" id="homeFeaturedCards"></div>
+      </div>
+
+    </div>
   </div>
 
-</div>
+  <!-- LOGIN -->
+  <div class="page" id="page-login">
+    <div class="login-wrap container">
+      <div class="grid-2" style="max-width:960px;margin:0 auto;width:100%;">
+        <div class="hero-grad">
+          <div class="hero-content" style="display:flex;flex-direction:column;justify-content:center;height:100%;">
+            <p class="label" style="color:#a8a29e;margin-bottom:12px;">COMMUNITY ACCESS</p>
+            <h1 style="font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.25rem;">Enter the support network.</h1>
+            <p style="font-size:15px;color:#d6d3d1;line-height:1.7;margin-bottom:1.75rem;">Choose a demo identity, set your role, and jump into a multi-page product flow.</p>
+            <ul class="space-3" style="list-style:none;">
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d6d3d1;"><span style="width:6px;height:6px;border-radius:99px;background:#5eead4;flex-shrink:0;margin-top:7px;"></span>Role-based entry for Need Help, Can Help, or Both</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d6d3d1;"><span style="width:6px;height:6px;border-radius:99px;background:#5eead4;flex-shrink:0;margin-top:7px;"></span>Direct path into dashboard, requests, AI Center</li>
+              <li style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#d6d3d1;"><span style="width:6px;height:6px;border-radius:99px;background:#5eead4;flex-shrink:0;margin-top:7px;"></span>Persistent demo session powered by LocalStorage</li>
+            </ul>
+          </div>
+        </div>
+        <div class="glass p-6">
+          <p class="label mb-3">LOGIN / SIGNUP</p>
+          <h2 style="font-size:26px;font-weight:800;margin-bottom:2rem;line-height:1.3;">Authenticate your community profile</h2>
+          <div class="space-5">
+            <div>
+              <label class="field-label">Select demo user</label>
+              <select class="field" id="loginUser"></select>
+            </div>
+            <div>
+              <label class="field-label">Role selection</label>
+              <select class="field" id="loginRole">
+                <option>Both</option><option>Need Help</option><option>Can Help</option>
+              </select>
+            </div>
+            <div class="grid-2">
+              <div>
+                <label class="field-label">Email</label>
+                <input type="email" class="field" value="community@helphub.ai" />
+              </div>
+              <div>
+                <label class="field-label">Password</label>
+                <input type="password" class="field" value="password" />
+              </div>
+            </div>
+            <button class="btn-primary w-full" onclick="handleLogin()">Continue to dashboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<script src="js/auth.js"></script>
+  <!-- DASHBOARD -->
+  <div class="page" id="page-dashboard">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">DASHBOARD</p>
+          <h1 id="dashWelcome" style="font-size:clamp(24px,4vw,38px);font-weight:900;color:#fff;"></h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:8px;">Your community overview with requests, stats, and AI insights at a glance.</p>
+        </div>
+      </div>
+      <div class="grid-4" id="dashStats"></div>
+      <div class="grid-2">
+        <div class="glass p-6">
+          <p class="label mb-3">AI INSIGHTS</p>
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:1.25rem;">What the AI is noticing</h3>
+          <div class="space-3" id="dashInsights"></div>
+        </div>
+        <div class="glass p-6">
+          <p class="label mb-3">QUICK ACTIONS</p>
+          <h3 style="font-size:20px;font-weight:800;margin-bottom:1.25rem;">Jump into action</h3>
+          <div class="space-3">
+            <div class="qa-row" onclick="navigate('create')">
+              <div><p class="qa-title">Post a new request</p><p class="qa-sub">Describe your problem and get matched</p></div>
+              <span class="qa-arrow">→</span>
+            </div>
+            <div class="qa-row" onclick="navigate('explore')">
+              <div><p class="qa-title">Browse the community feed</p><p class="qa-sub">Find requests that match your skills</p></div>
+              <span class="qa-arrow">→</span>
+            </div>
+            <div class="qa-row" onclick="navigate('leaderboard')">
+              <div><p class="qa-title">Check the leaderboard</p><p class="qa-sub">See top contributors and your ranking</p></div>
+              <span class="qa-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 style="font-size:20px;font-weight:800;">Recent community requests</h3>
+          <button class="btn-secondary" style="font-size:13px;padding:8px 16px;" onclick="navigate('explore')">View all →</button>
+        </div>
+        <div class="grid-3" id="dashRecentCards"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPLORE -->
+  <div class="page" id="page-explore">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">EXPLORE / FEED</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">Browse help requests with filterable community context.</h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:10px;">Filter by category, urgency, skills, and location to surface the best matches.</p>
+        </div>
+      </div>
+      <div class="explore-layout">
+        <div class="glass p-6 filter-sticky">
+          <p class="label mb-2">FILTERS</p>
+          <h2 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Refine the feed</h2>
+          <div class="space-5">
+            <div>
+              <label class="field-label">Category</label>
+              <select class="field" id="filterCat" onchange="filterRequests()">
+                <option value="All">All categories</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Urgency</label>
+              <select class="field" id="filterUrg" onchange="filterRequests()">
+                <option>All urgency levels</option>
+                <option>Low</option><option>Medium</option><option>High</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Skills / Tags</label>
+              <input type="text" class="field" id="filterSkills" placeholder="React, Figma, Git/GitHub" oninput="filterRequests()" />
+            </div>
+            <div>
+              <label class="field-label">Location</label>
+              <input type="text" class="field" id="filterLoc" placeholder="Karachi, Lahore, Remote" oninput="filterRequests()" />
+            </div>
+          </div>
+        </div>
+        <div id="exploreCards" class="space-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREATE REQUEST -->
+  <div class="page" id="page-create">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">CREATE REQUEST</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">Turn a rough problem into a clear help request.</h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:10px;">Use built-in AI suggestions for category, urgency, tags, and a stronger description rewrite.</p>
+        </div>
+      </div>
+      <div class="create-layout">
+        <div class="glass p-6">
+          <div class="space-5">
+            <div>
+              <label class="field-label">Title</label>
+              <input type="text" class="field" id="createTitle" placeholder="Need review on my JavaScript quiz app before submission" oninput="updateAI()" />
+            </div>
+            <div>
+              <label class="field-label">Description</label>
+              <textarea class="field" id="createDesc" rows="6" placeholder="Explain the challenge, your current progress, deadline, and what kind of help would be useful." oninput="updateAI()"></textarea>
+            </div>
+            <div class="grid-2">
+              <div>
+                <label class="field-label">Tags</label>
+                <input type="text" class="field" id="createTags" placeholder="JavaScript, Debugging, Review" />
+              </div>
+              <div>
+                <label class="field-label">Category</label>
+                <select class="field" id="createCat"></select>
+              </div>
+            </div>
+            <div style="max-width:50%;">
+              <label class="field-label">Urgency</label>
+              <select class="field" id="createUrg">
+                <option>Low</option><option selected>Medium</option><option>High</option>
+              </select>
+            </div>
+            <div class="flex gap-3">
+              <button class="btn-secondary" onclick="applyAI()">Apply AI suggestions</button>
+              <button class="btn-primary" id="publishBtn" onclick="handlePublish()" disabled>Publish request</button>
+            </div>
+          </div>
+        </div>
+        <div class="glass p-6 ai-sticky">
+          <p class="label mb-3">AI ASSISTANT</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Smart request guidance</h3>
+          <div>
+            <div class="flex justify-between" style="padding:12px 0;border-bottom:1px solid #f0ebe5;">
+              <span class="text-14" style="color:var(--text-500);">Suggested category</span>
+              <span class="text-14 font-bold" id="aiCat">—</span>
+            </div>
+            <div class="flex justify-between" style="padding:12px 0;border-bottom:1px solid #f0ebe5;">
+              <span class="text-14" style="color:var(--text-500);">Detected urgency</span>
+              <span class="text-14 font-bold" id="aiUrg">—</span>
+            </div>
+            <div class="flex justify-between" style="padding:12px 0;border-bottom:1px solid #f0ebe5;">
+              <span class="text-14" style="color:var(--text-500);">Suggested tags</span>
+              <span class="text-14 font-bold" id="aiTags" style="text-align:right;max-width:60%;">—</span>
+            </div>
+            <div style="padding:12px 0;">
+              <span class="text-14" style="color:var(--text-500);">Rewrite suggestion</span>
+              <p class="text-14 font-bold mt-1" id="aiRewrite">Start describing the challenge to generate a stronger version.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MESSAGES -->
+  <div class="page" id="page-messages">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">INTERACTION / MESSAGING</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">Keep support moving through direct communication.</h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:10px;">Basic messaging gives helpers and requesters a clear follow-up path once a match happens.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="glass p-6">
+          <p class="label mb-3">CONVERSATION STREAM</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Recent messages</h3>
+          <div class="space-4" id="msgStream"></div>
+        </div>
+        <div class="glass p-6">
+          <p class="label mb-3">SEND MESSAGE</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Start a conversation</h3>
+          <div class="space-5">
+            <div>
+              <label class="field-label">To</label>
+              <select class="field" id="msgTo"></select>
+            </div>
+            <div>
+              <label class="field-label">Message</label>
+              <textarea class="field" id="msgBody" rows="5" placeholder="Share support details, ask for files, or suggest next steps." oninput="toggleSendBtn()"></textarea>
+            </div>
+            <button class="btn-primary w-full" id="sendBtn" onclick="sendMessage()" disabled>Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="page" id="page-leaderboard">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">LEADERBOARD</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">Recognize the people who keep the community moving.</h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:10px;">Trust score, contribution count, and badges create visible momentum for reliable helpers.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="glass p-6">
+          <p class="label mb-3">TOP HELPERS</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Rankings</h3>
+          <div class="space-3" id="lbRankings"></div>
+        </div>
+        <div class="glass p-6">
+          <p class="label mb-3">BADGE SYSTEM</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Trust and achievement</h3>
+          <div class="space-4" id="lbBadges"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI CENTER -->
+  <div class="page" id="page-ai-center">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">AI CENTER</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">See what the platform intelligence is noticing.</h1>
+          <p style="font-size:15px;color:#d6d3d1;margin-top:10px;">AI-like insights summarize demand trends, helper readiness, and urgency signals.</p>
+        </div>
+      </div>
+      <div class="grid-3" id="aiStats"></div>
+      <div class="glass p-6">
+        <p class="label mb-3">AI RECOMMENDATIONS</p>
+        <h3 style="font-size:24px;font-weight:800;margin-bottom:1.5rem;">Requests needing attention</h3>
+        <div class="space-4" id="aiRecoCards"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="page" id="page-notifications">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">NOTIFICATIONS</p>
+          <h1 style="font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;line-height:1.2;">Stay updated on requests, helpers, and trust signals.</h1>
+        </div>
+      </div>
+      <div class="glass p-6">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <p class="label mb-2">LIVE UPDATES</p>
+            <h3 style="font-size:24px;font-weight:800;">Notification feed</h3>
+          </div>
+          <button class="btn-secondary" onclick="markAllRead()">Mark all as read</button>
+        </div>
+        <div id="notifList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="page" id="page-profile">
+    <div class="container page-wrap space-y">
+      <div class="hero-grad" id="profileHero">
+        <div class="hero-content">
+          <p class="label" style="color:#a8a29e;margin-bottom:8px;">PROFILE</p>
+          <h1 id="profileHeroName" style="font-size:clamp(24px,4vw,38px);font-weight:900;color:#fff;"></h1>
+          <p id="profileHeroSub" style="font-size:15px;color:#d6d3d1;margin-top:6px;"></p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="glass p-6">
+          <p class="label mb-3">PUBLIC PROFILE</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Skills and reputation</h3>
+          <div id="profilePublic"></div>
+        </div>
+        <div class="glass p-6">
+          <p class="label mb-3">EDIT PROFILE</p>
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:1.5rem;">Update your identity</h3>
+          <div class="space-5">
+            <div class="grid-2">
+              <div>
+                <label class="field-label">Name</label>
+                <input type="text" class="field" id="editName" />
+              </div>
+              <div>
+                <label class="field-label">Location</label>
+                <input type="text" class="field" id="editLoc" />
+              </div>
+            </div>
+            <div>
+              <label class="field-label">Skills</label>
+              <input type="text" class="field" id="editSkills" />
+            </div>
+            <div>
+              <label class="field-label">Interests</label>
+              <input type="text" class="field" id="editInterests" />
+            </div>
+            <button class="btn-primary w-full" onclick="saveProfile()">Save profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #app -->
+
+<script src="app.js"></script>
 </body>
 </html>
